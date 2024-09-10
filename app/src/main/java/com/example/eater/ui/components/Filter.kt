@@ -16,7 +16,7 @@
 
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.example.eater.components
+package com.example.eater.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
