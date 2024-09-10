@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25d718c3-a40e-4eb3-a43b-71230781c476" name="Changes" comment="" />
+    <list default="true" id="25d718c3-a40e-4eb3-a43b-71230781c476" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,14 +57,16 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/java/com/example/eater/ui"
+    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/res"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\res" />
+      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\res\drawable" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui" />
+      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui\theme" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\components" />
-      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui" />
