@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.eater.components
+package com.example.eater.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
