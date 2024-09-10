@@ -27,5 +27,5 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Eater() {
-
+    val eaterNavController = rememberNavController()
 }
