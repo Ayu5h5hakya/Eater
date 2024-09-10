@@ -50,13 +50,17 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/java/com/example/eater/components"
+    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/java/com/example/eater/ui"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\components" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui" />
     </key>
   </component>
   <component name="RunManager">
