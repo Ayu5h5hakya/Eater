@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.example.eater.ui.theme.EaterTheme
 
 @Composable
-fun JetsnackCard(
+fun EaterCard(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.medium,
     color: Color = EaterTheme.colors.uiBackground,
@@ -40,7 +40,7 @@ fun JetsnackCard(
     elevation: Dp = 4.dp,
     content: @Composable () -> Unit
 ) {
-    JetsnackSurface(
+    EaterSurface (
         modifier = modifier,
         shape = shape,
         color = color,
@@ -57,7 +57,7 @@ fun JetsnackCard(
 @Composable
 private fun CardPreview() {
     EaterTheme {
-        JetsnackCard {
+        EaterCard   {
             Text(text = "Demo", modifier = Modifier.padding(16.dp))
         }
     }

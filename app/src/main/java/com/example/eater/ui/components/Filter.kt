@@ -51,11 +51,10 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.eater.FilterSharedElementKey
 import com.example.eater.R
 import com.example.eater.model.Filter
-import com.example.eater.ui.FilterSharedElementKey
 import com.example.eater.ui.theme.EaterTheme
-import com.example.eater.ui.theme.JetsnackTheme
 
 @Composable
 fun FilterBar(
@@ -84,10 +83,10 @@ fun FilterBar(
                     ) {
                         Icon(
                             imageVector = Icons.Rounded.FilterList,
-                            tint = JetsnackTheme.colors.brand,
+                            tint = EaterTheme.colors.brand,
                             contentDescription = stringResource(R.string.label_filters),
                             modifier = Modifier.diagonalGradientBorder(
-                                colors = JetsnackTheme.colors.interactiveSecondary,
+                                colors = EaterTheme.colors.interactiveSecondary,
                                 shape = CircleShape
                             )
                         )
@@ -109,20 +108,20 @@ fun FilterChip(
 ) {
     val (selected, setSelected) = filter.enabled
     val backgroundColor by animateColorAsState(
-        if (selected) JetsnackTheme.colors.brandSecondary else JetsnackTheme.colors.uiBackground,
+        if (selected) EaterTheme.colors.brandSecondary else EaterTheme.colors.uiBackground,
         label = "background color"
     )
     val border = Modifier.fadeInDiagonalGradientBorder(
         showBorder = !selected,
-        colors = JetsnackTheme.colors.interactiveSecondary,
+        colors = EaterTheme.colors.interactiveSecondary,
         shape = shape
     )
     val textColor by animateColorAsState(
-        if (selected) Color.Black else JetsnackTheme.colors.textSecondary,
+        if (selected) Color.Black else EaterTheme.colors.textSecondary,
         label = "text color"
     )
 
-    JetsnackSurface(
+    EaterSurface (
         modifier = modifier,
         color = backgroundColor,
         contentColor = textColor,
@@ -135,7 +134,7 @@ fun FilterChip(
         val backgroundPressed =
             if (pressed) {
                 Modifier.offsetGradientBackground(
-                    JetsnackTheme.colors.interactiveSecondary,
+                    EaterTheme.colors.interactiveSecondary,
                     200f,
                     0f
                 )

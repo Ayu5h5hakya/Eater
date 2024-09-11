@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetsnack.ui.theme
+package com.example.eater.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
@@ -25,7 +25,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-private val LightColorPalette = JetsnackColors(
+private val LightColorPalette = EaterColors(
     brand = Shadow5,
     brandSecondary = Ocean3,
     uiBackground = Neutral0,
@@ -50,7 +50,7 @@ private val LightColorPalette = JetsnackColors(
     isDark = false
 )
 
-private val DarkColorPalette = JetsnackColors(
+private val DarkColorPalette = EaterColors(
     brand = Shadow1,
     brandSecondary = Ocean2,
     uiBackground = Neutral8,
@@ -78,7 +78,7 @@ private val DarkColorPalette = JetsnackColors(
 )
 
 @Composable
-fun JetsnackTheme(
+fun EaterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -94,17 +94,17 @@ fun JetsnackTheme(
     }
 }
 
-object JetsnackTheme {
-    val colors: JetsnackColors
+object EaterTheme {
+    val colors: EaterColors
         @Composable
-        get() = LocalJetsnackColors.current
+        get() = LocalEaterColors.current
 }
 
 /**
  * Jetsnack custom Color Palette
  */
 @Immutable
-data class JetsnackColors(
+data class EaterColors(
     val gradient6_1: List<Color>,
     val gradient6_2: List<Color>,
     val gradient3_1: List<Color>,
@@ -137,19 +137,19 @@ data class JetsnackColors(
 
 @Composable
 fun ProvideJetsnackColors(
-    colors: JetsnackColors,
+    colors: EaterColors,
     content: @Composable () -> Unit
 ) {
-    CompositionLocalProvider(LocalJetsnackColors provides colors, content = content)
+    CompositionLocalProvider(LocalEaterColors provides colors, content = content)
 }
 
-private val LocalJetsnackColors = staticCompositionLocalOf<JetsnackColors> {
+private val LocalEaterColors = staticCompositionLocalOf<EaterColors> {
     error("No JetsnackColorPalette provided")
 }
 
 /**
  * A Material [Colors] implementation which sets all colors to [debugColor] to discourage usage of
- * [MaterialTheme.colorScheme] in preference to [JetsnackTheme.colors].
+ * [MaterialTheme.colorScheme] in preference to [EaterTheme.colors].
  */
 fun debugColors(
     darkTheme: Boolean,

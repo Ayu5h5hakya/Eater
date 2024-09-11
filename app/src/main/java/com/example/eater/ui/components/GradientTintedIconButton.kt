@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetsnack.ui.components
+package com.example.eater.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -37,36 +37,36 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.ui.theme.EaterTheme
 
 @Composable
-fun JetsnackGradientTintedIconButton(
+fun EaterGradientTintedIconButton(
     imageVector: ImageVector,
     onClick: () -> Unit,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    colors: List<Color> = JetsnackTheme.colors.interactiveSecondary
+    colors: List<Color> = EaterTheme.colors.interactiveSecondary
 ) {
     val interactionSource = remember { MutableInteractionSource() }
 
     // This should use a layer + srcIn but needs investigation
     val border = Modifier.fadeInDiagonalGradientBorder(
         showBorder = true,
-        colors = JetsnackTheme.colors.interactiveSecondary,
+        colors = EaterTheme.colors.interactiveSecondary,
         shape = CircleShape
     )
     val pressed by interactionSource.collectIsPressedAsState()
     val background = if (pressed) {
         Modifier.offsetGradientBackground(colors, 200f, 0f)
     } else {
-        Modifier.background(JetsnackTheme.colors.uiBackground)
+        Modifier.background(EaterTheme.colors.uiBackground)
     }
-    val blendMode = if (JetsnackTheme.colors.isDark) BlendMode.Darken else BlendMode.Plus
+    val blendMode = if (EaterTheme.colors.isDark) BlendMode.Darken else BlendMode.Plus
     val modifierColor = if (pressed) {
         Modifier.diagonalGradientTint(
             colors = listOf(
-                JetsnackTheme.colors.textSecondary,
-                JetsnackTheme.colors.textSecondary
+                EaterTheme.colors.textSecondary,
+                EaterTheme.colors.textSecondary
             ),
             blendMode = blendMode
         )
@@ -100,8 +100,8 @@ fun JetsnackGradientTintedIconButton(
 @Preview("dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun GradientTintedIconButtonPreview() {
-    JetsnackTheme {
-        JetsnackGradientTintedIconButton(
+    EaterTheme {
+        EaterGradientTintedIconButton(
             imageVector = Icons.Default.Add,
             onClick = {},
             contentDescription = "Demo",

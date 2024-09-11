@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetsnack.ui.theme
+package com.example.eater.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

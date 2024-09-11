@@ -49,7 +49,7 @@ import com.example.eater.ui.theme.EaterTheme
 
 @Composable
 
-fun JetsnackButton(
+fun EaterButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
@@ -63,7 +63,7 @@ fun JetsnackButton(
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     content: @Composable RowScope.() -> Unit
 ) {
-    JetsnackSurface(
+    EaterSurface (
         shape = shape,
         color = Color.Transparent,
         contentColor = if (enabled) contentColor else disabledContentColor,
@@ -110,7 +110,7 @@ private val ButtonShape = RoundedCornerShape(percent = 50)
 @Composable
 private fun ButtonPreview() {
     EaterTheme {
-        JetsnackButton(onClick = {}) {
+        EaterButton (onClick = {}) {
             Text(text = "Demo")
         }
     }
@@ -122,7 +122,7 @@ private fun ButtonPreview() {
 @Composable
 private fun RectangleButtonPreview() {
     EaterTheme {
-        JetsnackButton(
+        EaterButton(
             onClick = {}, shape = RectangleShape
         ) {
             Text(text = "Demo")
