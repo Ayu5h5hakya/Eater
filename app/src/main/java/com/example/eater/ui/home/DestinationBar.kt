@@ -1,22 +1,6 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.example.jetsnack.ui.home
+package com.example.eater.ui.home
 
 import android.content.res.Configuration
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -41,14 +25,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.jetsnack.R
-import com.example.jetsnack.ui.LocalNavAnimatedVisibilityScope
-import com.example.jetsnack.ui.LocalSharedTransitionScope
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackPreviewWrapper
-import com.example.jetsnack.ui.snackdetail.spatialExpressiveSpring
-import com.example.jetsnack.ui.theme.AlphaNearOpaque
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.LocalNavAnimatedVisibilityScope
+import com.example.eater.LocalSharedTransitionScope
+import com.example.eater.R
+import com.example.eater.ui.components.EaterDivider
+import com.example.eater.ui.components.eaterPreviewWrapper
+import com.example.eater.ui.snackdetail.spatialExpressiveSpring
+import com.example.eater.ui.theme.AlphaNearOpaque
+import com.example.eater.ui.theme.EaterTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -74,7 +58,7 @@ fun DestinationBar(modifier: Modifier = Modifier) {
                             Text(
                                 text = "Delivery to 1600 Amphitheater Way",
                                 style = MaterialTheme.typography.titleMedium,
-                                color = JetsnackTheme.colors.textSecondary,
+                                color = EaterTheme.colors.textSecondary,
                                 textAlign = TextAlign.Center,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
@@ -88,7 +72,7 @@ fun DestinationBar(modifier: Modifier = Modifier) {
                             ) {
                                 Icon(
                                     imageVector = Icons.Outlined.ExpandMore,
-                                    tint = JetsnackTheme.colors.brand,
+                                    tint = EaterTheme.colors.brand,
                                     contentDescription =
                                     stringResource(R.string.label_select_delivery)
                                 )
@@ -96,12 +80,12 @@ fun DestinationBar(modifier: Modifier = Modifier) {
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors().copy(
-                        containerColor = JetsnackTheme.colors.uiBackground
+                        containerColor = EaterTheme.colors.uiBackground
                             .copy(alpha = AlphaNearOpaque),
-                        titleContentColor = JetsnackTheme.colors.textSecondary
+                        titleContentColor = EaterTheme.colors.textSecondary
                     ),
                 )
-                JetsnackDivider()
+                EaterDivider()
             }
         }
     }
@@ -112,7 +96,7 @@ fun DestinationBar(modifier: Modifier = Modifier) {
 @Preview("large font", fontScale = 2f)
 @Composable
 fun PreviewDestinationBar() {
-    JetsnackPreviewWrapper {
+    eaterPreviewWrapper {
         DestinationBar()
     }
 }

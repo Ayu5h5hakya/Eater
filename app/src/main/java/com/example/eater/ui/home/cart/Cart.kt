@@ -60,27 +60,17 @@ import com.example.eater.model.OrderLine
 import com.example.eater.model.SnackCollection
 import com.example.eater.model.SnackRepo
 import com.example.eater.ui.components.EaterButton
+import com.example.eater.ui.components.EaterDivider
 import com.example.eater.ui.components.EaterSurface
 import com.example.eater.ui.components.QuantitySelector
+import com.example.eater.ui.components.SnackCollection
 import com.example.eater.ui.components.SnackImage
+import com.example.eater.ui.home.DestinationBar
+import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
+import com.example.eater.ui.snackdetail.spatialExpressiveSpring
 import com.example.eater.ui.theme.AlphaNearOpaque
 import com.example.eater.ui.theme.EaterTheme
-import com.example.jetsnack.R
-import com.example.jetsnack.model.OrderLine
-import com.example.jetsnack.model.SnackCollection
-import com.example.jetsnack.model.SnackRepo
-import com.example.jetsnack.ui.components.JetsnackButton
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.components.QuantitySelector
-import com.example.jetsnack.ui.components.SnackCollection
-import com.example.jetsnack.ui.components.SnackImage
-import com.example.jetsnack.ui.home.DestinationBar
-import com.example.eater.ui.home.cart.CartViewModel
-import com.example.jetsnack.ui.home.cart.SwipeDismissItem
-import com.example.jetsnack.ui.snackdetail.nonSpatialExpressiveSpring
-import com.example.jetsnack.ui.snackdetail.spatialExpressiveSpring
-import com.example.jetsnack.ui.utils.formatPrice
+import com.example.eater.ui.utils.formatPrice
 import kotlin.math.roundToInt
 
 @Composable
@@ -388,7 +378,7 @@ fun CartItem(
                 end.linkTo(parent.end)
             }
         )
-        JetsnackDivider(
+        EaterDivider(
             Modifier.constrainAs(divider) {
                 linkTo(start = parent.start, end = parent.end)
                 top.linkTo(parent.bottom)
@@ -446,7 +436,7 @@ fun SummaryItem(
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
-        JetsnackDivider()
+        EaterDivider()
         Row(modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp)) {
             Text(
                 text = stringResource(R.string.cart_total_label),
@@ -463,7 +453,7 @@ fun SummaryItem(
                 modifier = Modifier.alignBy(LastBaseline)
             )
         }
-        JetsnackDivider()
+        EaterDivider()
     }
 }
 
@@ -475,7 +465,7 @@ private fun CheckoutBar(modifier: Modifier = Modifier) {
         )
     ) {
 
-        JetsnackDivider()
+        EaterDivider()
         Row {
             Spacer(Modifier.weight(1f))
             EaterButton(

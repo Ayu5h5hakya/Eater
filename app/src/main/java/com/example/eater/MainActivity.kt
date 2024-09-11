@@ -31,6 +31,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.example.eater.ui.components.EaterScaffold
+import com.example.eater.ui.components.EaterSnackbar
 import com.example.eater.ui.components.rememberEaterScaffoldState
 import com.example.eater.ui.navigation.MainDestinations
 import com.example.eater.ui.navigation.rememberEaterNavController
@@ -43,6 +44,7 @@ import com.example.eater.ui.home.composableWithCompositionLocal
 import com.example.eater.ui.snackdetail.SnackDetail
 import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
 import com.example.eater.ui.snackdetail.spatialExpressiveSpring
+import com.example.jetsnack.ui.home.HomeSections
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -150,7 +152,7 @@ fun MainContainer(
             SnackbarHost(
                 hostState = it,
                 modifier = Modifier.systemBarsPadding(),
-                snackbar = { snackbarData -> eaterSnackbar(snackbarData) }
+                snackbar = { snackbarData -> EaterSnackbar(snackbarData) }
             )
         },
         snackBarHostState = eaterScaffoldState.snackBarHostState,

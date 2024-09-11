@@ -1,22 +1,6 @@
-/*
- * Copyright 2021 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:OptIn(ExperimentalLayoutApi::class, ExperimentalSharedTransitionApi::class)
 
-package com.example.jetsnack.ui.home
+package com.example.eater.ui.home
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
@@ -68,12 +52,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetsnack.R
-import com.example.jetsnack.model.Filter
-import com.example.jetsnack.model.SnackRepo
-import com.example.jetsnack.ui.FilterSharedElementKey
-import com.example.jetsnack.ui.components.FilterChip
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.FilterSharedElementKey
+import com.example.eater.R
+import com.example.eater.model.Filter
+import com.example.eater.model.SnackRepo
+import com.example.eater.ui.components.FilterChip
+import com.example.eater.ui.theme.EaterTheme
 
 @Composable
 fun FilterScreen(
@@ -128,7 +112,7 @@ fun FilterScreen(
                         indication = null,
                         interactionSource = remember { MutableInteractionSource() }
                     ) { }
-                    .background(JetsnackTheme.colors.uiFloated)
+                    .background(EaterTheme.colors.uiFloated)
                     .padding(horizontal = 24.dp, vertical = 16.dp)
                     .skipToLookaheadSize(),
             ) {
@@ -164,7 +148,7 @@ fun FilterScreen(
                             text = stringResource(id = R.string.reset),
                             style = MaterialTheme.typography.bodyMedium,
                             fontWeight = fontWeight,
-                            color = JetsnackTheme.colors.uiBackground
+                            color = EaterTheme.colors.uiBackground
                                 .copy(alpha = if (!resetEnabled) 0.38f else 1f)
                         )
                     }
@@ -256,7 +240,7 @@ fun MaxCalories(sliderPosition: Float, onValueChanged: (Float) -> Unit) {
         Text(
             text = stringResource(id = R.string.per_serving),
             style = MaterialTheme.typography.bodyMedium,
-            color = JetsnackTheme.colors.brand,
+            color = EaterTheme.colors.brand,
             modifier = Modifier.padding(top = 5.dp, start = 10.dp)
         )
     }
@@ -270,9 +254,9 @@ fun MaxCalories(sliderPosition: Float, onValueChanged: (Float) -> Unit) {
         modifier = Modifier
             .fillMaxWidth(),
         colors = SliderDefaults.colors(
-            thumbColor = JetsnackTheme.colors.brand,
-            activeTrackColor = JetsnackTheme.colors.brand,
-            inactiveTrackColor = JetsnackTheme.colors.iconInteractive
+            thumbColor = EaterTheme.colors.brand,
+            activeTrackColor = EaterTheme.colors.brand,
+            inactiveTrackColor = EaterTheme.colors.iconInteractive
         )
     )
 }
@@ -282,7 +266,7 @@ fun FilterTitle(text: String) {
     Text(
         text = text,
         style = MaterialTheme.typography.titleLarge,
-        color = JetsnackTheme.colors.brand,
+        color = EaterTheme.colors.brand,
         modifier = Modifier.padding(bottom = 8.dp)
     )
 }
@@ -313,7 +297,7 @@ fun SortOption(
             Icon(
                 imageVector = Icons.Filled.Done,
                 contentDescription = null,
-                tint = JetsnackTheme.colors.brand
+                tint = EaterTheme.colors.brand
             )
         }
     }
@@ -322,7 +306,7 @@ fun SortOption(
 @Preview("filter screen")
 @Composable
 fun FilterScreenPreview() {
-    JetsnackTheme {
+    EaterTheme {
         SharedTransitionLayout {
             AnimatedVisibility(true) {
                 FilterScreen(

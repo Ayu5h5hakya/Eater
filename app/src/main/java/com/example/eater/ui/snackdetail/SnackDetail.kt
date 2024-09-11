@@ -1,22 +1,6 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:OptIn(ExperimentalSharedTransitionApi::class, ExperimentalAnimationApi::class)
 
-package com.example.jetsnack.ui.snackdetail
+package com.example.eater.ui.snackdetail
 
 import android.content.res.Configuration
 import androidx.annotation.DrawableRes
@@ -96,24 +80,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
-import com.example.jetsnack.R
-import com.example.jetsnack.model.Snack
-import com.example.jetsnack.model.SnackCollection
-import com.example.jetsnack.model.SnackRepo
-import com.example.jetsnack.ui.LocalNavAnimatedVisibilityScope
-import com.example.jetsnack.ui.LocalSharedTransitionScope
-import com.example.jetsnack.ui.SnackSharedElementKey
-import com.example.jetsnack.ui.SnackSharedElementType
-import com.example.jetsnack.ui.components.JetsnackButton
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackPreviewWrapper
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.components.QuantitySelector
-import com.example.jetsnack.ui.components.SnackCollection
-import com.example.jetsnack.ui.components.SnackImage
-import com.example.jetsnack.ui.theme.JetsnackTheme
-import com.example.jetsnack.ui.theme.Neutral8
-import com.example.jetsnack.ui.utils.formatPrice
+import com.example.eater.LocalNavAnimatedVisibilityScope
+import com.example.eater.LocalSharedTransitionScope
+import com.example.eater.model.SnackRepo
+import com.example.eater.R
+import com.example.eater.SnackSharedElementKey
+import com.example.eater.SnackSharedElementType
+import com.example.eater.model.Snack
+import com.example.eater.model.SnackCollection
+import com.example.eater.ui.components.EaterButton
+import com.example.eater.ui.components.EaterDivider
+import com.example.eater.ui.components.eaterPreviewWrapper
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.components.QuantitySelector
+import com.example.eater.ui.components.SnackCollection
+import com.example.eater.ui.components.SnackImage
+import com.example.eater.ui.theme.EaterTheme
+import com.example.eater.ui.theme.Neutral8
+import com.example.eater.ui.utils.formatPrice
 import kotlin.math.max
 import kotlin.math.min
 
@@ -182,7 +166,7 @@ fun SnackDetail(
                     enter = fadeIn(nonSpatialExpressiveSpring()),
                 )
                 .fillMaxSize()
-                .background(color = JetsnackTheme.colors.uiBackground)
+                .background(color = EaterTheme.colors.uiBackground)
         ) {
             val scroll = rememberScrollState(0)
             Header(snack.id, origin = origin)
@@ -203,7 +187,7 @@ private fun Header(snackId: Long, origin: String) {
         ?: throw IllegalArgumentException("No Scope found")
 
     with(sharedTransitionScope) {
-        val brushColors = JetsnackTheme.colors.tornado1
+        val brushColors = EaterTheme.colors.tornado1
 
         val infiniteTransition = rememberInfiniteTransition(label = "background")
         val targetOffset = with(LocalDensity.current) {
@@ -276,7 +260,7 @@ private fun SharedTransitionScope.Up(upPress: () -> Unit) {
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
-                tint = JetsnackTheme.colors.iconInteractive,
+                tint = EaterTheme.colors.iconInteractive,
                 contentDescription = stringResource(R.string.label_back),
             )
         }
@@ -304,7 +288,7 @@ private fun Body(
             ) {
                 Spacer(Modifier.height(GradientScroll))
                 Spacer(Modifier.height(ImageOverlap))
-                JetsnackSurface(
+                EaterSurface(
                     Modifier
                         .fillMaxWidth()
                         .padding(top = 16.dp),
@@ -314,7 +298,7 @@ private fun Body(
                         Text(
                             text = stringResource(R.string.detail_header),
                             style = MaterialTheme.typography.labelSmall,
-                            color = JetsnackTheme.colors.textHelp,
+                            color = EaterTheme.colors.textHelp,
                             modifier = HzPadding
                         )
                         Spacer(Modifier.height(16.dp))
@@ -323,7 +307,7 @@ private fun Body(
                             Text(
                                 text = stringResource(R.string.detail_placeholder),
                                 style = MaterialTheme.typography.bodyLarge,
-                                color = JetsnackTheme.colors.textHelp,
+                                color = EaterTheme.colors.textHelp,
                                 maxLines = if (seeMore) 5 else Int.MAX_VALUE,
                                 overflow = TextOverflow.Ellipsis,
                                 modifier = HzPadding.skipToLookaheadSize()
@@ -340,7 +324,7 @@ private fun Body(
                             text = textButton,
                             style = MaterialTheme.typography.labelLarge,
                             textAlign = TextAlign.Center,
-                            color = JetsnackTheme.colors.textLink,
+                            color = EaterTheme.colors.textLink,
                             modifier = Modifier
                                 .heightIn(20.dp)
                                 .fillMaxWidth()
@@ -355,19 +339,19 @@ private fun Body(
                         Text(
                             text = stringResource(R.string.ingredients),
                             style = MaterialTheme.typography.labelSmall,
-                            color = JetsnackTheme.colors.textHelp,
+                            color = EaterTheme.colors.textHelp,
                             modifier = HzPadding
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
                             text = stringResource(R.string.ingredients_list),
                             style = MaterialTheme.typography.bodyLarge,
-                            color = JetsnackTheme.colors.textHelp,
+                            color = EaterTheme.colors.textHelp,
                             modifier = HzPadding
                         )
 
                         Spacer(Modifier.height(16.dp))
-                        JetsnackDivider()
+                        EaterDivider()
 
                         related.forEach { snackCollection ->
                             key(snackCollection.id) {
@@ -413,14 +397,14 @@ private fun Title(snack: Snack, origin: String, scrollProvider: () -> Int) {
                     val offset = (maxOffset - scroll).coerceAtLeast(minOffset)
                     IntOffset(x = 0, y = offset.toInt())
                 }
-                .background(JetsnackTheme.colors.uiBackground)
+                .background(EaterTheme.colors.uiBackground)
         ) {
             Spacer(Modifier.height(16.dp))
             Text(
                 text = snack.name,
                 fontStyle = FontStyle.Italic,
                 style = MaterialTheme.typography.headlineMedium,
-                color = JetsnackTheme.colors.textSecondary,
+                color = EaterTheme.colors.textSecondary,
                 modifier = HzPadding
                     .sharedBounds(
                         rememberSharedContentState(
@@ -440,7 +424,7 @@ private fun Title(snack: Snack, origin: String, scrollProvider: () -> Int) {
                 fontStyle = FontStyle.Italic,
                 style = MaterialTheme.typography.titleSmall,
                 fontSize = 20.sp,
-                color = JetsnackTheme.colors.textHelp,
+                color = EaterTheme.colors.textHelp,
                 modifier = HzPadding
                     .sharedBounds(
                         rememberSharedContentState(
@@ -460,7 +444,7 @@ private fun Title(snack: Snack, origin: String, scrollProvider: () -> Int) {
                 Text(
                     text = formatPrice(snack.price),
                     style = MaterialTheme.typography.titleLarge,
-                    color = JetsnackTheme.colors.textPrimary,
+                    color = EaterTheme.colors.textPrimary,
                     modifier = HzPadding
                         .animateEnterExit(
                             enter = fadeIn() + slideInVertically { -it / 3 },
@@ -470,7 +454,7 @@ private fun Title(snack: Snack, origin: String, scrollProvider: () -> Int) {
                 )
             }
             Spacer(Modifier.height(8.dp))
-            JetsnackDivider(modifier = Modifier)
+            EaterDivider(modifier = Modifier)
         }
     }
 }
@@ -565,7 +549,7 @@ private fun CartBottomBar(modifier: Modifier = Modifier) {
         LocalNavAnimatedVisibilityScope.current ?: throw IllegalStateException("No Shared scope")
     with(sharedTransitionScope) {
         with(animatedVisibilityScope) {
-            JetsnackSurface(
+            EaterSurface(
                 modifier = modifier
                     .renderInSharedTransitionScopeOverlay(zIndexInOverlay = 4f)
                     .animateEnterExit(
@@ -580,7 +564,7 @@ private fun CartBottomBar(modifier: Modifier = Modifier) {
                     )
             ) {
                 Column {
-                    JetsnackDivider()
+                    EaterDivider()
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
@@ -594,7 +578,7 @@ private fun CartBottomBar(modifier: Modifier = Modifier) {
                             increaseItemCount = { updateCount(count + 1) }
                         )
                         Spacer(Modifier.width(16.dp))
-                        JetsnackButton(
+                        EaterButton(
                             onClick = { /* todo */ },
                             modifier = Modifier.weight(1f)
                         ) {
@@ -617,7 +601,7 @@ private fun CartBottomBar(modifier: Modifier = Modifier) {
 @Preview("large font", fontScale = 2f)
 @Composable
 private fun SnackDetailPreview() {
-    JetsnackPreviewWrapper {
+    eaterPreviewWrapper {
         SnackDetail(
             snackId = 1L,
             origin = "details",

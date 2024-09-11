@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.home.search
+package com.example.eater.ui.home.search
 
 import android.content.res.Configuration
 import androidx.compose.foundation.clickable
@@ -33,10 +17,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetsnack.model.SearchRepo
-import com.example.jetsnack.model.SearchSuggestionGroup
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.model.SearchRepo
+import com.example.eater.model.SearchSuggestionGroup
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.theme.EaterTheme
 
 @Composable
 fun SearchSuggestions(
@@ -70,7 +54,7 @@ private fun SuggestionHeader(
     Text(
         text = name,
         style = MaterialTheme.typography.titleLarge,
-        color = JetsnackTheme.colors.textPrimary,
+        color = EaterTheme.colors.textPrimary,
         modifier = modifier
             .heightIn(min = 56.dp)
             .padding(horizontal = 24.dp, vertical = 4.dp)
@@ -100,8 +84,8 @@ private fun Suggestion(
 @Preview("large font", fontScale = 2f)
 @Composable
 fun PreviewSuggestions() {
-    JetsnackTheme {
-        JetsnackSurface {
+    EaterTheme {
+        EaterSurface  {
             SearchSuggestions(
                 suggestions = SearchRepo.getSuggestions(),
                 onSuggestionSelect = { }
