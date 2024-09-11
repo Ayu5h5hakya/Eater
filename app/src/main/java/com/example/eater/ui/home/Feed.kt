@@ -65,12 +65,6 @@ private fun Feed(
             Box {
                 SnackCollectionList(
                     snackCollections,
-                    filters,
-                    filtersVisible = filtersVisible,
-                    onFiltersSelected = {
-                        filtersVisible = true
-                    },
-                    sharedTransitionScope = this@SharedTransitionLayout,
                     onSnackClick = onSnackClick
                 )
                 DestinationBar()
@@ -88,11 +82,7 @@ private fun Feed(
 @Composable
 private fun SnackCollectionList(
     snackCollections: List<SnackCollection>,
-    filters: List<Filter>,
-    filtersVisible: Boolean,
-    onFiltersSelected: () -> Unit,
     onSnackClick: (Long, String) -> Unit,
-    sharedTransitionScope: SharedTransitionScope,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
@@ -101,12 +91,6 @@ private fun SnackCollectionList(
                 Modifier.windowInsetsTopHeight(
                     WindowInsets.statusBars.add(WindowInsets(top = 56.dp))
                 )
-            )
-            FilterBar(
-                filters,
-                sharedTransitionScope = sharedTransitionScope,
-                filterScreenVisible = filtersVisible,
-                onShowFilters = onFiltersSelected
             )
         }
         itemsIndexed(snackCollections) { index, snackCollection ->

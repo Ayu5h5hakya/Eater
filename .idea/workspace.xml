@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25d718c3-a40e-4eb3-a43b-71230781c476" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/model/SnackCollection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/model/SnackCollection.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/components/Snacks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/components/Snacks.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/home/search/Results.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/home/search/Results.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/theme/Theme.kt" afterDir="false" />
-    </list>
+    <list default="true" id="25d718c3-a40e-4eb3-a43b-71230781c476" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
