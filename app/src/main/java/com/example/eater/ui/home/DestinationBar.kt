@@ -66,17 +66,6 @@ fun DestinationBar(modifier: Modifier = Modifier) {
                                     .weight(1f)
                                     .align(Alignment.CenterVertically)
                             )
-                            IconButton(
-                                onClick = { /* todo */ },
-                                modifier = Modifier.align(Alignment.CenterVertically)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Outlined.ExpandMore,
-                                    tint = EaterTheme.colors.brand,
-                                    contentDescription =
-                                    stringResource(R.string.label_select_delivery)
-                                )
-                            }
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors().copy(
