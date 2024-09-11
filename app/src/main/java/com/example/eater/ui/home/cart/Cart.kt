@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.home.cart
+package com.example.eater.ui.home.cart
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateDpAsState
@@ -71,22 +55,22 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.jetsnack.R
-import com.example.jetsnack.model.OrderLine
-import com.example.jetsnack.model.SnackCollection
-import com.example.jetsnack.model.SnackRepo
-import com.example.jetsnack.ui.components.JetsnackButton
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.components.QuantitySelector
-import com.example.jetsnack.ui.components.SnackCollection
-import com.example.jetsnack.ui.components.SnackImage
-import com.example.jetsnack.ui.home.DestinationBar
-import com.example.jetsnack.ui.snackdetail.nonSpatialExpressiveSpring
-import com.example.jetsnack.ui.snackdetail.spatialExpressiveSpring
-import com.example.jetsnack.ui.theme.AlphaNearOpaque
-import com.example.jetsnack.ui.theme.JetsnackTheme
-import com.example.jetsnack.ui.utils.formatPrice
+import com.example.eater.R
+import com.example.eater.model.OrderLine
+import com.example.eater.model.SnackCollection
+import com.example.eater.model.SnackRepo
+import com.example.eater.ui.components.EaterButton
+import com.example.eater.ui.components.EaterDivider
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.components.QuantitySelector
+import com.example.eater.ui.components.SnackCollection
+import com.example.eater.ui.components.SnackImage
+import com.example.eater.ui.home.DestinationBar
+import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
+import com.example.eater.ui.snackdetail.spatialExpressiveSpring
+import com.example.eater.ui.theme.AlphaNearOpaque
+import com.example.eater.ui.theme.EaterTheme
+import com.example.eater.ui.utils.formatPrice
 import kotlin.math.roundToInt
 
 @Composable
@@ -118,7 +102,7 @@ fun Cart(
     onSnackClick: (Long, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    JetsnackSurface(modifier = modifier.fillMaxSize()) {
+    EaterSurface(modifier = modifier.fillMaxSize()) {
         Box(modifier = Modifier.fillMaxSize()) {
             CartContent(
                 orderLines = orderLines,
@@ -164,7 +148,7 @@ private fun CartContent(
             Text(
                 text = stringResource(R.string.cart_order_header, snackCountFormattedString),
                 style = MaterialTheme.typography.titleLarge,
-                color = JetsnackTheme.colors.brand,
+                color = EaterTheme.colors.brand,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
@@ -224,7 +208,7 @@ private fun CartContent(
 private fun SwipeDismissItemBackground(progress: Float) {
     Column(
         modifier = Modifier
-            .background(JetsnackTheme.colors.uiBackground)
+            .background(EaterTheme.colors.uiBackground)
             .fillMaxWidth()
             .fillMaxHeight(),
         horizontalAlignment = Alignment.End,
@@ -245,7 +229,7 @@ private fun SwipeDismissItemBackground(progress: Float) {
                     .height(maxWidth)
                     .align(Alignment.Center),
                 shape = RoundedCornerShape(percent = ((1 - progress) * 100).roundToInt()),
-                color = JetsnackTheme.colors.error
+                color = EaterTheme.colors.error
             ) {
                 Box(
                     modifier = Modifier.fillMaxSize(),
@@ -263,7 +247,7 @@ private fun SwipeDismissItemBackground(progress: Float) {
                             modifier = Modifier
                                 .size(32.dp)
                                 .graphicsLayer(alpha = iconAlpha),
-                            tint = JetsnackTheme.colors.uiBackground,
+                            tint = EaterTheme.colors.uiBackground,
                             contentDescription = null,
                         )
                     }
@@ -276,7 +260,7 @@ private fun SwipeDismissItemBackground(progress: Float) {
                         Text(
                             text = stringResource(id = R.string.remove_item),
                             style = MaterialTheme.typography.titleMedium,
-                            color = JetsnackTheme.colors.uiBackground,
+                            color = EaterTheme.colors.uiBackground,
                             textAlign = TextAlign.Center,
                             modifier = Modifier
                                 .graphicsLayer(
@@ -304,7 +288,7 @@ fun CartItem(
         modifier = modifier
             .fillMaxWidth()
             .clickable { onSnackClick(snack.id, "cart") }
-            .background(JetsnackTheme.colors.uiBackground)
+            .background(EaterTheme.colors.uiBackground)
             .padding(horizontal = 24.dp)
 
     ) {
@@ -324,7 +308,7 @@ fun CartItem(
         Text(
             text = snack.name,
             style = MaterialTheme.typography.titleMedium,
-            color = JetsnackTheme.colors.textSecondary,
+            color = EaterTheme.colors.textSecondary,
             modifier = Modifier.constrainAs(name) {
                 linkTo(
                     start = image.end,
@@ -346,14 +330,14 @@ fun CartItem(
         ) {
             Icon(
                 imageVector = Icons.Filled.Close,
-                tint = JetsnackTheme.colors.iconSecondary,
+                tint = EaterTheme.colors.iconSecondary,
                 contentDescription = stringResource(R.string.label_remove)
             )
         }
         Text(
             text = snack.tagline,
             style = MaterialTheme.typography.bodyLarge,
-            color = JetsnackTheme.colors.textHelp,
+            color = EaterTheme.colors.textHelp,
             modifier = Modifier.constrainAs(tag) {
                 linkTo(
                     start = image.end,
@@ -374,7 +358,7 @@ fun CartItem(
         Text(
             text = formatPrice(snack.price),
             style = MaterialTheme.typography.titleMedium,
-            color = JetsnackTheme.colors.textPrimary,
+            color = EaterTheme.colors.textPrimary,
             modifier = Modifier.constrainAs(price) {
                 linkTo(
                     start = image.end,
@@ -394,7 +378,7 @@ fun CartItem(
                 end.linkTo(parent.end)
             }
         )
-        JetsnackDivider(
+        EaterDivider(
             Modifier.constrainAs(divider) {
                 linkTo(start = parent.start, end = parent.end)
                 top.linkTo(parent.bottom)
@@ -413,7 +397,7 @@ fun SummaryItem(
         Text(
             text = stringResource(R.string.cart_summary_header),
             style = MaterialTheme.typography.titleLarge,
-            color = JetsnackTheme.colors.brand,
+            color = EaterTheme.colors.brand,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
@@ -452,7 +436,7 @@ fun SummaryItem(
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
-        JetsnackDivider()
+        EaterDivider()
         Row(modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp)) {
             Text(
                 text = stringResource(R.string.cart_total_label),
@@ -469,7 +453,7 @@ fun SummaryItem(
                 modifier = Modifier.alignBy(LastBaseline)
             )
         }
-        JetsnackDivider()
+        EaterDivider()
     }
 }
 
@@ -477,14 +461,14 @@ fun SummaryItem(
 private fun CheckoutBar(modifier: Modifier = Modifier) {
     Column(
         modifier.background(
-            JetsnackTheme.colors.uiBackground.copy(alpha = AlphaNearOpaque)
+            EaterTheme.colors.uiBackground.copy(alpha = AlphaNearOpaque)
         )
     ) {
 
-        JetsnackDivider()
+        EaterDivider()
         Row {
             Spacer(Modifier.weight(1f))
-            JetsnackButton(
+            EaterButton(
                 onClick = { /* todo */ },
                 shape = RectangleShape,
                 modifier = Modifier
@@ -507,7 +491,7 @@ private fun CheckoutBar(modifier: Modifier = Modifier) {
 @Preview("large font", fontScale = 2f)
 @Composable
 private fun CartPreview() {
-    JetsnackTheme {
+    EaterTheme {
         Cart(
             orderLines = SnackRepo.getCart(),
             removeSnack = {},

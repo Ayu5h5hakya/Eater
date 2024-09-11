@@ -1,20 +1,4 @@
-/*
- * Copyright 2021 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.navigation
+package com.example.eater.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
@@ -27,7 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 /**
- * Destinations used in the [JetsnackApp].
+ * Destinations used in the [EaterApp].
  */
 object MainDestinations {
     const val HOME_ROUTE = "home"
@@ -37,20 +21,20 @@ object MainDestinations {
 }
 
 /**
- * Remembers and creates an instance of [JetsnackNavController]
+ * Remembers and creates an instance of [EaterNavController]
  */
 @Composable
-fun rememberJetsnackNavController(
+fun rememberEaterNavController(
     navController: NavHostController = rememberNavController()
-): JetsnackNavController = remember(navController) {
-    JetsnackNavController(navController)
+): EaterNavController = remember(navController) {
+    EaterNavController(navController)
 }
 
 /**
  * Responsible for holding UI Navigation logic.
  */
 @Stable
-class JetsnackNavController(
+class EaterNavController(
     val navController: NavHostController,
 ) {
 

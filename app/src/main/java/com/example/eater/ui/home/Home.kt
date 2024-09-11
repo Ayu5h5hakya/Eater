@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.home
+package com.example.eater.ui.home
 
 import androidx.annotation.FloatRange
 import androidx.annotation.StringRes
@@ -76,14 +60,14 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDeepLink
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.example.jetsnack.R
-import com.example.jetsnack.ui.LocalNavAnimatedVisibilityScope
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.home.cart.Cart
-import com.example.jetsnack.ui.home.search.Search
-import com.example.jetsnack.ui.snackdetail.nonSpatialExpressiveSpring
-import com.example.jetsnack.ui.snackdetail.spatialExpressiveSpring
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.LocalNavAnimatedVisibilityScope
+import com.example.eater.R
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.home.cart.Cart
+import com.example.eater.ui.home.search.Search
+import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
+import com.example.eater.ui.snackdetail.spatialExpressiveSpring
+import com.example.eater.ui.theme.EaterTheme
 import java.util.Locale
 
 fun NavGraphBuilder.composableWithCompositionLocal(
@@ -170,27 +154,27 @@ enum class HomeSections(
 }
 
 @Composable
-fun JetsnackBottomBar(
+fun eaterBottomBar(
     tabs: Array<HomeSections>,
     currentRoute: String,
     navigateToRoute: (String) -> Unit,
     modifier: Modifier = Modifier,
-    color: Color = JetsnackTheme.colors.iconPrimary,
-    contentColor: Color = JetsnackTheme.colors.iconInteractive
+    color: Color = EaterTheme.colors.iconPrimary,
+    contentColor: Color = EaterTheme.colors.iconInteractive
 ) {
     val routes = remember { tabs.map { it.route } }
     val currentSection = tabs.first { it.route == currentRoute }
 
-    JetsnackSurface(
+    EaterSurface(
         modifier = modifier,
         color = color,
         contentColor = contentColor
     ) {
         val springSpec = spatialExpressiveSpring<Float>()
-        JetsnackBottomNavLayout(
+        eaterBottomNavLayout(
             selectedIndex = currentSection.ordinal,
             itemCount = routes.size,
-            indicator = { JetsnackBottomNavIndicator() },
+            indicator = { eaterBottomNavIndicator() },
             animSpec = springSpec,
             modifier = Modifier.navigationBarsPadding()
         ) {
@@ -202,16 +186,16 @@ fun JetsnackBottomBar(
                 val selected = section == currentSection
                 val tint by animateColorAsState(
                     if (selected) {
-                        JetsnackTheme.colors.iconInteractive
+                        EaterTheme.colors.iconInteractive
                     } else {
-                        JetsnackTheme.colors.iconInteractiveInactive
+                        EaterTheme.colors.iconInteractiveInactive
                     },
                     label = "tint"
                 )
 
                 val text = stringResource(section.title).uppercase(currentLocale)
 
-                JetsnackBottomNavigationItem(
+                eaterBottomNavigationItem(
                     icon = {
                         Icon(
                             imageVector = section.icon,
@@ -239,7 +223,7 @@ fun JetsnackBottomBar(
 }
 
 @Composable
-private fun JetsnackBottomNavLayout(
+private fun eaterBottomNavLayout(
     selectedIndex: Int,
     itemCount: Int,
     animSpec: AnimationSpec<Float>,
@@ -316,7 +300,7 @@ private fun JetsnackBottomNavLayout(
 }
 
 @Composable
-fun JetsnackBottomNavigationItem(
+fun eaterBottomNavigationItem(
     icon: @Composable BoxScope.() -> Unit,
     text: @Composable BoxScope.() -> Unit,
     selected: Boolean,
@@ -329,7 +313,7 @@ fun JetsnackBottomNavigationItem(
         if (selected) 1f else 0f, animSpec,
         label = "animation progress"
     )
-    JetsnackBottomNavItemLayout(
+    eaterBottomNavItemLayout(
         icon = icon,
         text = text,
         animationProgress = animationProgress,
@@ -340,7 +324,7 @@ fun JetsnackBottomNavigationItem(
 }
 
 @Composable
-private fun JetsnackBottomNavItemLayout(
+private fun eaterBottomNavItemLayout(
     icon: @Composable BoxScope.() -> Unit,
     text: @Composable BoxScope.() -> Unit,
     @FloatRange(from = 0.0, to = 1.0) animationProgress: Float,
@@ -406,9 +390,9 @@ private fun MeasureScope.placeTextAndIcon(
 }
 
 @Composable
-private fun JetsnackBottomNavIndicator(
+private fun eaterBottomNavIndicator(
     strokeWidth: Dp = 2.dp,
-    color: Color = JetsnackTheme.colors.iconInteractive,
+    color: Color = EaterTheme.colors.iconInteractive,
     shape: Shape = BottomNavIndicatorShape
 ) {
     Spacer(
@@ -427,9 +411,9 @@ private val BottomNavigationItemPadding = Modifier.padding(horizontal = 16.dp, v
 
 @Preview
 @Composable
-private fun JetsnackBottomNavPreview() {
-    JetsnackTheme {
-        JetsnackBottomBar(
+private fun eaterBottomNavPreview() {
+    EaterTheme {
+        eaterBottomBar(
             tabs = HomeSections.entries.toTypedArray(),
             currentRoute = "home/feed",
             navigateToRoute = { }

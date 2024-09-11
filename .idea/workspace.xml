@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25d718c3-a40e-4eb3-a43b-71230781c476" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/components/Snacks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/components/Snacks.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +37,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2ls3rGuDEgj7IlV9VUsjkzGSNVY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -49,24 +53,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Android App.app.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "android.gradle.sync.needed": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/res"
+    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/java/com/example/eater",
+    "run.code.analysis.last.selected.profile": "pProject Default"
+  },
+  "keyToStringList": {
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\Ayush\\.gradle"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\res" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\res\drawable" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui" />
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui\theme" />
-      <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ayush\AndroidStudioProjects\Eater\app\src\main\java\com\example\eater\ui" />
@@ -88,7 +98,6 @@
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />

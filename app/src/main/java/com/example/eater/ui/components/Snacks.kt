@@ -1,22 +1,6 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.example.jetsnack.ui.components
+package com.example.eater.ui.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.annotation.DrawableRes
@@ -73,18 +57,18 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.jetsnack.R
-import com.example.jetsnack.model.CollectionType
-import com.example.jetsnack.model.Snack
-import com.example.jetsnack.model.SnackCollection
-import com.example.jetsnack.model.snacks
-import com.example.jetsnack.ui.LocalNavAnimatedVisibilityScope
-import com.example.jetsnack.ui.LocalSharedTransitionScope
-import com.example.jetsnack.ui.SnackSharedElementKey
-import com.example.jetsnack.ui.SnackSharedElementType
-import com.example.jetsnack.ui.snackdetail.nonSpatialExpressiveSpring
-import com.example.jetsnack.ui.snackdetail.snackDetailBoundsTransform
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.LocalNavAnimatedVisibilityScope
+import com.example.eater.LocalSharedTransitionScope
+import com.example.eater.model.SnackCollection
+import com.example.eater.R
+import com.example.eater.SnackSharedElementKey
+import com.example.eater.SnackSharedElementType
+import com.example.eater.model.CollectionType
+import com.example.eater.model.Snack
+import com.example.eater.model.snacks
+import com.example.eater.ui.theme.EaterTheme
+import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
+import com.example.eater.ui.snackdetail.snackDetailBoundsTransform
 
 private val HighlightCardWidth = 170.dp
 private val HighlightCardPadding = 16.dp
@@ -109,23 +93,13 @@ fun SnackCollection(
             Text(
                 text = snackCollection.name,
                 style = MaterialTheme.typography.titleLarge,
-                color = JetsnackTheme.colors.brand,
+                color = EaterTheme.colors.brand,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .weight(1f)
                     .wrapContentWidth(Alignment.Start)
             )
-            IconButton(
-                onClick = { /* todo */ },
-                modifier = Modifier.align(Alignment.CenterVertically)
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
-                    tint = JetsnackTheme.colors.brand,
-                    contentDescription = null
-                )
-            }
         }
         if (highlight && snackCollection.type == CollectionType.Highlight) {
             HighlightedSnacks(snackCollection.id, index, snackCollection.snacks, onSnackClick)
@@ -153,8 +127,8 @@ private fun HighlightedSnacks(
     }
 
     val gradient = when ((index / 2) % 2) {
-        0 -> JetsnackTheme.colors.gradient6_1
-        else -> JetsnackTheme.colors.gradient6_2
+        0 -> EaterTheme.colors.gradient6_1
+        else -> EaterTheme.colors.gradient6_2
     }
 
     LazyRow(
@@ -200,7 +174,7 @@ fun SnackItem(
     onSnackClick: (Long, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    JetsnackSurface(
+    EaterSurface(
         shape = MaterialTheme.shapes.medium,
         modifier = modifier.padding(
             start = 4.dp,
@@ -244,7 +218,7 @@ fun SnackItem(
                 Text(
                     text = snack.name,
                     style = MaterialTheme.typography.titleMedium,
-                    color = JetsnackTheme.colors.textSecondary,
+                    color = EaterTheme.colors.textSecondary,
                     modifier = Modifier
                         .padding(top = 8.dp)
                         .wrapContentWidth()
@@ -291,7 +265,7 @@ private fun HighlightSnackItem(
                     EnterExitState.PostExit -> 20.dp
                 }
             }
-        JetsnackCard(
+        EaterCard (
             elevation = 0.dp,
             shape = RoundedCornerShape(roundedCornerAnimation),
             modifier = modifier
@@ -320,7 +294,7 @@ private fun HighlightSnackItem(
                 )
                 .border(
                     1.dp,
-                    JetsnackTheme.colors.uiBorder.copy(alpha = 0.12f),
+                    EaterTheme.colors.uiBorder.copy(alpha = 0.12f),
                     RoundedCornerShape(roundedCornerAnimation)
                 )
 
@@ -359,19 +333,6 @@ private fun HighlightSnackItem(
                             )
                             .height(100.dp)
                             .fillMaxWidth()
-                            .offsetGradientBackground(
-                                colors = gradient,
-                                width = {
-                                    // The Cards show a gradient which spans 6 cards and
-                                    // scrolls with parallax.
-                                    6 * cardWidthWithPaddingPx
-                                },
-                                offset = {
-                                    val left = index * cardWidthWithPaddingPx
-                                    val gradientOffset = left - (scrollProvider() / 3f)
-                                    gradientOffset
-                                }
-                            )
                     )
 
                     SnackImage(
@@ -402,7 +363,7 @@ private fun HighlightSnackItem(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.titleLarge,
-                    color = JetsnackTheme.colors.textSecondary,
+                    color = EaterTheme.colors.textSecondary,
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
                         .sharedBounds(
@@ -426,7 +387,7 @@ private fun HighlightSnackItem(
                 Text(
                     text = snack.tagline,
                     style = MaterialTheme.typography.bodyLarge,
-                    color = JetsnackTheme.colors.textHelp,
+                    color = EaterTheme.colors.textHelp,
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
                         .sharedBounds(
@@ -466,7 +427,7 @@ fun SnackImage(
     modifier: Modifier = Modifier,
     elevation: Dp = 0.dp
 ) {
-    JetsnackSurface(
+    EaterSurface(
         elevation = elevation,
         shape = CircleShape,
         modifier = modifier
@@ -491,21 +452,21 @@ fun SnackImage(
 @Composable
 fun SnackCardPreview() {
     val snack = snacks.first()
-    JetsnackPreviewWrapper {
+    eaterPreviewWrapper {
         HighlightSnackItem(
             snackCollectionId = 1,
             snack = snack,
             onSnackClick = { _, _ -> },
             index = 0,
-            gradient = JetsnackTheme.colors.gradient6_1,
+            gradient = EaterTheme.colors.gradient6_1,
             scrollProvider = { 0f }
         )
     }
 }
 
 @Composable
-fun JetsnackPreviewWrapper(content: @Composable () -> Unit) {
-    JetsnackTheme {
+fun eaterPreviewWrapper(content: @Composable () -> Unit) {
+    EaterTheme {
         SharedTransitionLayout {
             AnimatedVisibility(visible = true) {
                 CompositionLocalProvider(

@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.theme
+package com.example.eater.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
@@ -25,7 +9,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-private val LightColorPalette = JetsnackColors(
+private val LightColorPalette = EaterColors(
     brand = Shadow5,
     brandSecondary = Ocean3,
     uiBackground = Neutral0,
@@ -50,7 +34,7 @@ private val LightColorPalette = JetsnackColors(
     isDark = false
 )
 
-private val DarkColorPalette = JetsnackColors(
+private val DarkColorPalette = EaterColors(
     brand = Shadow1,
     brandSecondary = Ocean2,
     uiBackground = Neutral8,
@@ -78,13 +62,13 @@ private val DarkColorPalette = JetsnackColors(
 )
 
 @Composable
-fun JetsnackTheme(
+fun EaterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
-    ProvideJetsnackColors(colors) {
+    ProvideEaterColors(colors) {
         MaterialTheme(
             colorScheme = debugColors(darkTheme),
             typography = Typography,
@@ -94,17 +78,17 @@ fun JetsnackTheme(
     }
 }
 
-object JetsnackTheme {
-    val colors: JetsnackColors
+object EaterTheme {
+    val colors: EaterColors
         @Composable
-        get() = LocalJetsnackColors.current
+        get() = LocalEaterColors.current
 }
 
 /**
- * Jetsnack custom Color Palette
+ * Eater custom Color Palette
  */
 @Immutable
-data class JetsnackColors(
+data class EaterColors(
     val gradient6_1: List<Color>,
     val gradient6_2: List<Color>,
     val gradient3_1: List<Color>,
@@ -136,20 +120,20 @@ data class JetsnackColors(
 )
 
 @Composable
-fun ProvideJetsnackColors(
-    colors: JetsnackColors,
+fun ProvideEaterColors(
+    colors: EaterColors,
     content: @Composable () -> Unit
 ) {
-    CompositionLocalProvider(LocalJetsnackColors provides colors, content = content)
+    CompositionLocalProvider(LocalEaterColors provides colors, content = content)
 }
 
-private val LocalJetsnackColors = staticCompositionLocalOf<JetsnackColors> {
-    error("No JetsnackColorPalette provided")
+private val LocalEaterColors = staticCompositionLocalOf<EaterColors> {
+    error("No EaterColorPalette provided")
 }
 
 /**
  * A Material [Colors] implementation which sets all colors to [debugColor] to discourage usage of
- * [MaterialTheme.colorScheme] in preference to [JetsnackTheme.colors].
+ * [MaterialTheme.colorScheme] in preference to [EaterTheme.colors].
  */
 fun debugColors(
     darkTheme: Boolean,

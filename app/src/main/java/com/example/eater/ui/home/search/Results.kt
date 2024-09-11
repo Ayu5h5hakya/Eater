@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.home.search
+package com.example.eater.ui.home.search
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -46,15 +30,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.example.jetsnack.R
-import com.example.jetsnack.model.Snack
-import com.example.jetsnack.model.snacks
-import com.example.jetsnack.ui.components.JetsnackButton
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.components.SnackImage
-import com.example.jetsnack.ui.theme.JetsnackTheme
-import com.example.jetsnack.ui.utils.formatPrice
+import com.example.eater.R
+import com.example.eater.model.Snack
+import com.example.eater.model.snacks
+import com.example.eater.ui.components.EaterButton
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.components.SnackImage
+import com.example.eater.ui.theme.EaterTheme
+import com.example.eater.ui.utils.formatPrice
+import com.example.eater.ui.components.EaterDivider
 
 @Composable
 fun SearchResults(
@@ -65,7 +49,7 @@ fun SearchResults(
         Text(
             text = stringResource(R.string.search_count, searchResults.size),
             style = MaterialTheme.typography.titleLarge,
-            color = JetsnackTheme.colors.textPrimary,
+            color = EaterTheme.colors.textPrimary,
             modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp)
         )
         LazyColumn {
@@ -92,7 +76,7 @@ private fun SearchResult(
         val (divider, image, name, tag, priceSpacer, price, add) = createRefs()
         createVerticalChain(name, tag, priceSpacer, price, chainStyle = ChainStyle.Packed)
         if (showDivider) {
-            JetsnackDivider(
+            EaterDivider(
                 Modifier.constrainAs(divider) {
                     linkTo(start = parent.start, end = parent.end)
                     top.linkTo(parent.top)
@@ -117,7 +101,7 @@ private fun SearchResult(
         Text(
             text = snack.name,
             style = MaterialTheme.typography.titleMedium,
-            color = JetsnackTheme.colors.textSecondary,
+            color = EaterTheme.colors.textSecondary,
             modifier = Modifier.constrainAs(name) {
                 linkTo(
                     start = image.end,
@@ -131,7 +115,7 @@ private fun SearchResult(
         Text(
             text = snack.tagline,
             style = MaterialTheme.typography.bodyLarge,
-            color = JetsnackTheme.colors.textHelp,
+            color = EaterTheme.colors.textHelp,
             modifier = Modifier.constrainAs(tag) {
                 linkTo(
                     start = image.end,
@@ -152,7 +136,7 @@ private fun SearchResult(
         Text(
             text = formatPrice(snack.price),
             style = MaterialTheme.typography.titleMedium,
-            color = JetsnackTheme.colors.textPrimary,
+            color = EaterTheme.colors.textPrimary,
             modifier = Modifier.constrainAs(price) {
                 linkTo(
                     start = image.end,
@@ -163,7 +147,7 @@ private fun SearchResult(
                 )
             }
         )
-        JetsnackButton(
+        EaterButton (
             onClick = { /* todo */ },
             shape = CircleShape,
             contentPadding = PaddingValues(0.dp),
@@ -220,8 +204,8 @@ fun NoResults(
 @Preview("large font", fontScale = 2f)
 @Composable
 private fun SearchResultPreview() {
-    JetsnackTheme {
-        JetsnackSurface {
+    EaterTheme {
+        EaterSurface   {
             SearchResult(
                 snack = snacks[0],
                 onSnackClick = { _, _ -> },

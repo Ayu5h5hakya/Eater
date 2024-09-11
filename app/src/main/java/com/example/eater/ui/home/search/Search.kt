@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.home.search
+package com.example.eater.ui.home.search
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
@@ -53,16 +37,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetsnack.R
-import com.example.jetsnack.model.Filter
-import com.example.jetsnack.model.SearchCategoryCollection
-import com.example.jetsnack.model.SearchRepo
-import com.example.jetsnack.model.SearchSuggestionGroup
-import com.example.jetsnack.model.Snack
-import com.example.jetsnack.model.SnackRepo
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.R
+import com.example.eater.model.Filter
+import com.example.eater.model.SearchCategoryCollection
+import com.example.eater.model.SearchRepo
+import com.example.eater.model.SearchSuggestionGroup
+import com.example.eater.model.Snack
+import com.example.eater.model.SnackRepo
+import com.example.eater.ui.components.EaterDivider
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.theme.EaterTheme
 
 @Composable
 fun Search(
@@ -70,7 +54,7 @@ fun Search(
     modifier: Modifier = Modifier,
     state: SearchState = rememberSearchState()
 ) {
-    JetsnackSurface(modifier = modifier.fillMaxSize()) {
+    EaterSurface(modifier = modifier.fillMaxSize()) {
         Column {
             Spacer(modifier = Modifier.statusBarsPadding())
             SearchBar(
@@ -81,7 +65,7 @@ fun Search(
                 onClearQuery = { state.query = TextFieldValue("") },
                 searching = state.searching
             )
-            JetsnackDivider()
+            EaterDivider()
 
             LaunchedEffect(state.query.text) {
                 state.searching = true
@@ -171,9 +155,9 @@ private fun SearchBar(
     searching: Boolean,
     modifier: Modifier = Modifier
 ) {
-    JetsnackSurface(
-        color = JetsnackTheme.colors.uiFloated,
-        contentColor = JetsnackTheme.colors.textSecondary,
+    EaterSurface(
+        color = EaterTheme.colors.uiFloated,
+        contentColor = EaterTheme.colors.textSecondary,
         shape = MaterialTheme.shapes.small,
         modifier = modifier
             .fillMaxWidth()
@@ -194,7 +178,7 @@ private fun SearchBar(
                     IconButton(onClick = onClearQuery) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
-                            tint = JetsnackTheme.colors.iconPrimary,
+                            tint = EaterTheme.colors.iconPrimary,
                             contentDescription = stringResource(R.string.label_back)
                         )
                     }
@@ -210,7 +194,7 @@ private fun SearchBar(
                 )
                 if (searching) {
                     CircularProgressIndicator(
-                        color = JetsnackTheme.colors.iconPrimary,
+                        color = EaterTheme.colors.iconPrimary,
                         modifier = Modifier
                             .padding(horizontal = 6.dp)
                             .size(36.dp)
@@ -235,13 +219,13 @@ private fun SearchHint() {
     ) {
         Icon(
             imageVector = Icons.Outlined.Search,
-            tint = JetsnackTheme.colors.textHelp,
+            tint = EaterTheme.colors.textHelp,
             contentDescription = stringResource(R.string.label_search)
         )
         Spacer(Modifier.width(8.dp))
         Text(
-            text = stringResource(R.string.search_jetsnack),
-            color = JetsnackTheme.colors.textHelp
+            text = stringResource(R.string.search_eater),
+            color = EaterTheme.colors.textHelp
         )
     }
 }
@@ -251,8 +235,8 @@ private fun SearchHint() {
 @Preview("large font", fontScale = 2f)
 @Composable
 private fun SearchBarPreview() {
-    JetsnackTheme {
-        JetsnackSurface {
+    EaterTheme {
+        EaterSurface  {
             SearchBar(
                 query = TextFieldValue(""),
                 onQueryChange = { },

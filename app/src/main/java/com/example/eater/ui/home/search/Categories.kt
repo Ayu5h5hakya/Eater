@@ -1,20 +1,4 @@
-/*
- * Copyright 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.example.jetsnack.ui.home.search
+package com.example.eater.ui.home.search
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -42,12 +26,12 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
-import com.example.jetsnack.R
-import com.example.jetsnack.model.SearchCategory
-import com.example.jetsnack.model.SearchCategoryCollection
-import com.example.jetsnack.ui.components.SnackImage
-import com.example.jetsnack.ui.components.VerticalGrid
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.R
+import com.example.eater.ui.theme.EaterTheme
+import com.example.eater.model.SearchCategory
+import com.example.eater.model.SearchCategoryCollection
+import com.example.eater.ui.components.SnackImage
+import com.example.eater.ui.components.VerticalGrid
 import kotlin.math.max
 
 @Composable
@@ -72,7 +56,7 @@ private fun SearchCategoryCollection(
         Text(
             text = collection.name,
             style = MaterialTheme.typography.titleLarge,
-            color = JetsnackTheme.colors.textPrimary,
+            color = EaterTheme.colors.textPrimary,
             modifier = Modifier
                 .heightIn(min = 56.dp)
                 .padding(horizontal = 24.dp, vertical = 4.dp)
@@ -80,8 +64,8 @@ private fun SearchCategoryCollection(
         )
         VerticalGrid(Modifier.padding(horizontal = 16.dp)) {
             val gradient = when (index % 2) {
-                0 -> JetsnackTheme.colors.gradient2_2
-                else -> JetsnackTheme.colors.gradient2_3
+                0 -> EaterTheme.colors.gradient2_2
+                else -> EaterTheme.colors.gradient2_3
             }
             collection.categories.forEach { category ->
                 SearchCategory(
@@ -116,7 +100,7 @@ private fun SearchCategory(
             Text(
                 text = category.name,
                 style = MaterialTheme.typography.titleMedium,
-                color = JetsnackTheme.colors.textSecondary,
+                color = EaterTheme.colors.textSecondary,
                 modifier = Modifier
                     .padding(4.dp)
                     .padding(start = 8.dp)
@@ -158,13 +142,13 @@ private fun SearchCategory(
 @Preview("large font", fontScale = 2f)
 @Composable
 private fun SearchCategoryPreview() {
-    JetsnackTheme {
+    EaterTheme {
         SearchCategory(
             category = SearchCategory(
                 name = "Desserts",
                 imageRes = R.drawable.desserts
             ),
-            gradient = JetsnackTheme.colors.gradient3_2
+            gradient = EaterTheme.colors.gradient3_2
         )
     }
 }

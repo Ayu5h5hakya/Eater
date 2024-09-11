@@ -1,22 +1,6 @@
-/*
- * Copyright 2024 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.example.jetsnack.ui.home
+package com.example.eater.ui.home
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
@@ -42,14 +26,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetsnack.model.Filter
-import com.example.jetsnack.model.SnackCollection
-import com.example.jetsnack.model.SnackRepo
-import com.example.jetsnack.ui.components.FilterBar
-import com.example.jetsnack.ui.components.JetsnackDivider
-import com.example.jetsnack.ui.components.JetsnackSurface
-import com.example.jetsnack.ui.components.SnackCollection
-import com.example.jetsnack.ui.theme.JetsnackTheme
+import com.example.eater.model.Filter
+import com.example.eater.model.SnackCollection
+import com.example.eater.model.SnackRepo
+import com.example.eater.ui.components.EaterDivider
+import com.example.eater.ui.components.FilterBar
+import com.example.eater.ui.components.EaterSurface
+import com.example.eater.ui.components.SnackCollection
+import com.example.eater.ui.theme.EaterTheme
 
 @Composable
 fun Feed(
@@ -73,7 +57,7 @@ private fun Feed(
     onSnackClick: (Long, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    JetsnackSurface(modifier = modifier.fillMaxSize()) {
+    EaterSurface(modifier = modifier.fillMaxSize()) {
         var filtersVisible by remember {
             mutableStateOf(false)
         }
@@ -81,12 +65,6 @@ private fun Feed(
             Box {
                 SnackCollectionList(
                     snackCollections,
-                    filters,
-                    filtersVisible = filtersVisible,
-                    onFiltersSelected = {
-                        filtersVisible = true
-                    },
-                    sharedTransitionScope = this@SharedTransitionLayout,
                     onSnackClick = onSnackClick
                 )
                 DestinationBar()
@@ -104,11 +82,7 @@ private fun Feed(
 @Composable
 private fun SnackCollectionList(
     snackCollections: List<SnackCollection>,
-    filters: List<Filter>,
-    filtersVisible: Boolean,
-    onFiltersSelected: () -> Unit,
     onSnackClick: (Long, String) -> Unit,
-    sharedTransitionScope: SharedTransitionScope,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
@@ -118,16 +92,10 @@ private fun SnackCollectionList(
                     WindowInsets.statusBars.add(WindowInsets(top = 56.dp))
                 )
             )
-            FilterBar(
-                filters,
-                sharedTransitionScope = sharedTransitionScope,
-                filterScreenVisible = filtersVisible,
-                onShowFilters = onFiltersSelected
-            )
         }
         itemsIndexed(snackCollections) { index, snackCollection ->
             if (index > 0) {
-                JetsnackDivider(thickness = 2.dp)
+                EaterDivider(thickness = 2.dp)
             }
 
             SnackCollection(
@@ -144,7 +112,7 @@ private fun SnackCollectionList(
 @Preview("large font", fontScale = 2f)
 @Composable
 fun HomePreview() {
-    JetsnackTheme {
+    EaterTheme {
         Feed(onSnackClick = { _, _ -> })
     }
 }
