@@ -100,16 +100,6 @@ fun SnackCollection(
                     .weight(1f)
                     .wrapContentWidth(Alignment.Start)
             )
-            IconButton(
-                onClick = { /* todo */ },
-                modifier = Modifier.align(Alignment.CenterVertically)
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
-                    tint = EaterTheme.colors.brand,
-                    contentDescription = null
-                )
-            }
         }
         if (highlight && snackCollection.type == CollectionType.Highlight) {
             HighlightedSnacks(snackCollection.id, index, snackCollection.snacks, onSnackClick)
