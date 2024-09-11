@@ -36,7 +36,6 @@ import com.example.eater.ui.components.rememberEaterScaffoldState
 import com.example.eater.ui.navigation.MainDestinations
 import com.example.eater.ui.navigation.rememberEaterNavController
 import com.example.eater.ui.theme.EaterTheme
-import com.example.eater.ui.components.eaterSnackbar
 import com.example.eater.ui.home.HomeSections
 import com.example.eater.ui.home.eaterBottomBar
 import com.example.eater.ui.home.addHomeGraph
@@ -44,7 +43,6 @@ import com.example.eater.ui.home.composableWithCompositionLocal
 import com.example.eater.ui.snackdetail.SnackDetail
 import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
 import com.example.eater.ui.snackdetail.spatialExpressiveSpring
-import com.example.jetsnack.ui.home.HomeSections
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

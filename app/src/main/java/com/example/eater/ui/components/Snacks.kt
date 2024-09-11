@@ -67,8 +67,8 @@ import com.example.eater.model.CollectionType
 import com.example.eater.model.Snack
 import com.example.eater.model.snacks
 import com.example.eater.ui.theme.EaterTheme
-import com.example.jetsnack.ui.snackdetail.nonSpatialExpressiveSpring
-import com.example.jetsnack.ui.snackdetail.snackDetailBoundsTransform
+import com.example.eater.ui.snackdetail.nonSpatialExpressiveSpring
+import com.example.eater.ui.snackdetail.snackDetailBoundsTransform
 
 private val HighlightCardWidth = 170.dp
 private val HighlightCardPadding = 16.dp
