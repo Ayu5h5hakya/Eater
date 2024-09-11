@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="25d718c3-a40e-4eb3-a43b-71230781c476" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/components/Snacks.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/eater/ui/components/Snacks.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +57,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "ScreenRecorder.SavePath": "D:\\New folder",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Ayush/AndroidStudioProjects/Eater/app/src/main/java/com/example/eater",
+    "last_opened_file_path": "D:/New folder",
     "run.code.analysis.last.selected.profile": "pProject Default"
   },
   "keyToStringList": {
